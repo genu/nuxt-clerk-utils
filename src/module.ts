@@ -61,13 +61,21 @@ export default defineNuxtModule<ModuleOptions>({
     })
 
     // Runtime configuration
-    const runtimeConfig = _nuxt.options.runtimeConfig
+    _nuxt.options.runtimeConfig.public.clerk = defu(_nuxt.options.runtimeConfig.public.clerk, {
+      publishableKey: process.env.CLERK_PUBLISHABLE_KEY,
 
-    runtimeConfig.public = defu(runtimeConfig.public, {
-      clerk: {
-        publishableKey: process.env.CLERK_PUBLISHABLE_KEY,
-      },
     })
   },
 
 })
+
+declare module 'nuxt/schema' {
+  interface RuntimeConfig {
+    apiSecret: string
+  }
+  interface PublicRuntimeConfig {
+    clerk: {
+      publishableKey: string
+    }
+  }
+}
