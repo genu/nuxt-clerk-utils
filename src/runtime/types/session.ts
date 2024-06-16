@@ -1,9 +1,10 @@
-import type { Ref } from 'vue'
+import type { InitialState } from '@clerk/types'
+import type { Ref, ComputedRef } from 'vue'
+
+export interface ClerkSessionState extends Partial<InitialState> {}
 
 export interface UserSessionComposable {
-  // loggedIn: ComputedRef<boolean>
-  // user: ComputedRef<string | null>
-  session: Ref<string>
+  loggedIn: ComputedRef<boolean>
+  session: Ref<ClerkSessionState>
   fetch: () => Promise<void>
-  // clear: () => Promise<void>
 }

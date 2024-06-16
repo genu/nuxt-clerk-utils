@@ -5,8 +5,6 @@ export default defineNuxtPlugin({
   name: 'clerk-session-fetch-plugin',
   enforce: 'pre',
   async setup() {
-    const { fetch } = useClerkSession()
-
-    await fetch()
+    await useClerkSession().fetch()
   },
 })

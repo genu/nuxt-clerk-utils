@@ -30,6 +30,7 @@ export default defineNuxtModule<ModuleOptions>({
      * App
      */
     addPlugin(resolver.resolve('./runtime/plugins/clerk-session.server'))
+    addPlugin(resolver.resolve('./runtime/plugins/vue-clerk'))
 
     /**
      * Server
@@ -52,11 +53,21 @@ export default defineNuxtModule<ModuleOptions>({
     })
     addServerHandler({
       handler: resolver.resolve('./runtime/server/api/session.get'),
-      route: '/api/_clerk/session.get',
+      route: '/api/_clerk/session',
     })
     addServerHandler({
       handler: resolver.resolve('./runtime/server/api/session.delete'),
-      route: '/api/_clerk/session.delete',
+      route: '/api/_clerk/session',
+    })
+
+    // Runtime configuration
+    const runtimeConfig = _nuxt.options.runtimeConfig
+
+    runtimeConfig.public = defu(runtimeConfig.public, {
+      clerk: {
+        publishableKey: process.env.CLERK_PUBLISHABLE_KEY,
+      },
     })
   },
+
 })

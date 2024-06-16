@@ -1,1 +1,1 @@
-export type { UserSessionComposable } from './session'
+export type { UserSessionComposable, ClerkSessionState } from './session'

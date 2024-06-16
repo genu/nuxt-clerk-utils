@@ -1,11 +1,10 @@
 <script lang="ts" setup>
-const { session } = useClerkSession()
+import { UserButton } from 'vue-clerk'
 </script>
 
 <template>
   <div>
-    session:
-    <pre>{{ session }}</pre>
+    <UserButton after-sign-out-url="/" />
   </div>
 </template>
 

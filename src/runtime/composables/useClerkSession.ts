@@ -1,21 +1,18 @@
-import { ref } from 'vue'
-import type { UserSessionComposable } from '#clerk'
-import { useState, useRequestFetch } from '#imports'
+import type { UserSessionComposable, ClerkSessionState } from '#clerk'
+import { useState, useRequestFetch, computed } from '#imports'
 
-const useClerkSessionState = () => useState('clerk-session', () => ({}))
+const useClerkSessionState = () => useState<ClerkSessionState>('clerk-session', () => ({}))
 
 export function useClerkSession(): UserSessionComposable {
-  const clerkSessionState = useClerkSessionState()
+  const session = useClerkSessionState()
 
   const fetch = async () => {
     const requestFetch = useRequestFetch()
 
-    clerkSessionState.value = await requestFetch('/api/_clerk/session', {
+    session.value = await requestFetch('/api/_clerk/session', {
       retry: false,
     })
   }
 
-  const session = ref('your-session-id-here')
-
-  return { fetch, session }
+  return { fetch, session, loggedIn: computed(() => Boolean(session.value.userId)) }
 }
