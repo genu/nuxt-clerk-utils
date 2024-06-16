@@ -1,11 +1,23 @@
 <script lang="ts" setup>
-import { UserButton } from 'vue-clerk'
+import { UserButton, SignedIn, OrganizationSwitcher } from 'vue-clerk'
 </script>
 
 <template>
-  <div>
+  <SignedIn>
+    <div class="block sm:hidden">
+      <OrganizationSwitcher
+        after-create-organization-url="/dashboard"
+        :appearance="{
+          elements: {
+            organizationSwitcherTriggerIcon: `hidden`,
+            organizationPreviewTextContainer: `hidden`,
+            organizationSwitcherTrigger: `pr-0`,
+          },
+        }"
+      />
+    </div>
     <UserButton after-sign-out-url="/" />
-  </div>
+  </SignedIn>
 </template>
 
 <script setup></script>
