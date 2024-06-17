@@ -41,6 +41,7 @@ export default defineNuxtConfig({
 ```
 
 ## Configuration
+
 The following environment variables are required in order for this module to function correctly to be defined in your `.env`:
 
 ```bash
@@ -50,6 +51,7 @@ CLERK_SECRET_KEY="..."
 # Optional: Enable this if you want to handle clerk webhooks
 CLERK_WEBHOOK_SIGNING_SECRET=".."
 ```
+
 ## Vue Composables
 
 > NOTE: All of the composables and components are re-exported from [vue-clerk](https://github.com/wobsoriano/vue-clerk). See project [documentation](https://vue-clerk.vercel.app) for usage
@@ -69,18 +71,20 @@ const clerkSession = await requireClerkSession(event);
 ```
 
 ### Webhooks
+
 To work with webhooks, first create the webhook on the clerk dashboard, and define a handler for it in your app like so:
 
+> Note: You must provide the `CLERK_WEBHOOK_SIGNING_SECRET` env (see above)
+
+When defining a webhook in this way, you can assume that the webhook is valid as **its signature is automatically verified.**
 
 ```ts
 // server/routes/clerk.post.ts
 export default defineClerkWebhook((_event, { payload, type }) => {
   // ...
-})
-
+});
 ```
 
-Webhook signature are verified automatically.
 ## Development
 
 ```bash
