@@ -1,6 +1,6 @@
 import type { H3Event } from 'h3'
 import { getAuth } from 'h3-clerk'
-// import { clerkClient } from '@clerk/clerk-sdk-node'
+import { stripPrivateDataFromObject } from '@clerk/backend/internal';
 
 export function requireClerkSession(event: H3Event) {
   const auth = getAuth(event)
@@ -8,7 +8,7 @@ export function requireClerkSession(event: H3Event) {
   if (!auth.userId)
     throw new Error('No session found')
 
-  return auth
+  return stripPrivateDataFromObject(auth)
 }
 
 export function getClerkSession(event: H3Event) {
@@ -21,5 +21,5 @@ export function getClerkSession(event: H3Event) {
     return null
   }
 
-  return auth
+  return stripPrivateDataFromObject(auth)
 }
