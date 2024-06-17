@@ -1,7 +1,3 @@
-<script lang="ts" setup>
-import { UserButton, SignedIn, OrganizationSwitcher } from 'vue-clerk'
-</script>
-
 <template>
   <SignedIn>
     <div class="block sm:hidden">

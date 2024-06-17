@@ -4,6 +4,8 @@ import {
   addServerHandler,
   addImportsDir,
   addPlugin,
+  addComponent,
+  addImports,
 } from '@nuxt/kit'
 import { defu } from 'defu'
 
@@ -18,8 +20,6 @@ export default defineNuxtModule<ModuleOptions>({
   // Default configuration options of the Nuxt module
   defaults: {},
   setup(_options, _nuxt) {
-    // const runtimeConfig = nuxt.options.runtimeConfig
-
     const resolver = createResolver(import.meta.url)
 
     addImportsDir(resolver.resolve('./runtime/composables'))
@@ -65,6 +65,58 @@ export default defineNuxtModule<ModuleOptions>({
       publishableKey: process.env.CLERK_PUBLISHABLE_KEY,
 
     })
+
+    /**
+     * Vue Clerk
+     */
+    const components = [
+      // Authentication Components
+      'SignIn',
+      'SignUp',
+      // Unstyled Components
+      'SignInButton',
+      'SignOutButton',
+      'SignUpButton',
+      // User Components
+      'UserButton',
+      'UserProfile',
+      // Organization Components
+      'CreateOrganization',
+      'OrganizationProfile',
+      'OrganizationSwitcher',
+      'OrganizationList',
+      // Control Components
+      'ClerkLoaded',
+      'ClerkLoading',
+      'Protect',
+      'RedirectToSignIn',
+      'RedirectToSignUp',
+      'RedirectToUserProfile',
+      'RedirectToOrganizationProfile',
+      'RedirectToCreateOrganization',
+      'SignedIn',
+      'SignedOut',
+    ]
+    const composables = [
+      // Composables
+      'useAuth',
+      'useClerk',
+      'useSession',
+      'useSessionList',
+      'useSignIn',
+      'useSignUp',
+      'useUser',
+      'useOrganization',
+    ]
+
+    addImports(composables.map(composable => ({
+      name: composable,
+      from: 'vue-clerk',
+    })))
+
+    components.forEach(component =>
+      addComponent({ name: component, export: component, filePath: 'vue-clerk' }),
+    )
   },
 
 })
