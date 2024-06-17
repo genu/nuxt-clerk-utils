@@ -1,8 +1,8 @@
 {
   "name": "nuxt-clerk-utils",
-  "version": "1.1.0",
-  "description": "My new Nuxt module",
-  "repository": "your-org/my-module",
+  "version": "1.1.1",
+  "description": "Auth utils for clerk",
+  "repository": "https://github.com/genu/nuxt-clerk-utils",
   "license": "MIT",
   "type": "module",
   "exports": {
