@@ -18,6 +18,7 @@ This module only works with SSR (server-side rendering) enabled as it uses serve
 ## Quick Setup
 
 1. Add `nuxt-clerk-utils`
+
 ```bash
 # Using pnpm
 pnpm add -D nuxt-clerk-utils
@@ -28,6 +29,14 @@ yarn add --dev nuxt-clerk-utils
 # Using npm
 npm install --save-dev nuxt-clerk-utils
 
+```
+
+2. Add `nuxt-clerk-utils` to `nuxt.config.ts`
+
+```ts
+export default defineNuxtConfig({
+  modules: ["nuxt-clerk-utils"],
+});
 ```
 
 ## Vue Composables
@@ -75,6 +84,7 @@ npm run release
 ```
 
 ## Prior art and acknowledgments
+
 - [nuxt-clerk](https://github.com/RodrigoProjects/nuxt-clerk)
 - [nuxt-auth-utils](https://github.com/Atinux/nuxt-auth-utils)
 
