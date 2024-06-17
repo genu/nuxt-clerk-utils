@@ -71,6 +71,14 @@ export default defineNuxtModule<ModuleOptions>({
       },
     )
 
+    _nuxt.options.runtimeConfig.clerk = defu(
+      _nuxt.options.runtimeConfig.clerk,
+      {
+        secretKey: process.env.CLERK_SECRET_KEY,
+        webhookSigningSecret: process.env.CLERK_WEBHOOK_SIGNING_SECRET,
+      },
+    )
+
     /**
      * Vue Clerk
      */
@@ -133,7 +141,10 @@ export default defineNuxtModule<ModuleOptions>({
 
 declare module 'nuxt/schema' {
   interface RuntimeConfig {
-    apiSecret: string
+    clerk: {
+      secretKey: string
+      webhookSigningSecret: string
+    }
   }
   interface PublicRuntimeConfig {
     clerk: {
