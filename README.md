@@ -1,13 +1,4 @@
-<!--
-Get your module up and running quickly.
-
-Find and replace all on all files (CMD+SHIFT+F):
-- Name: My Module
-- Package name: my-module
-- Description: My new Nuxt module
--->
-
-# nuxt-clerk
+# nuxt-clerk-utils
 
 [![npm version][npm-version-src]][npm-version-href]
 [![npm downloads][npm-downloads-src]][npm-downloads-href]
@@ -26,11 +17,22 @@ This module only works with SSR (server-side rendering) enabled as it uses serve
 
 ## Quick Setup
 
-...
+1. Add `nuxt-clerk-utils`
+```bash
+# Using pnpm
+pnpm add -D nuxt-clerk-utils
+
+# Using yarn
+yarn add --dev nuxt-clerk-utils
+
+# Using npm
+npm install --save-dev nuxt-clerk-utils
+
+```
 
 ## Vue Composables
 
-...
+> NOTE: All of the composables and components are re-exported from [vue-clerk](https://github.com/wobsoriano/vue-clerk). See project [documentation](https://vue-clerk.vercel.app) for usage
 
 ## Server Utils
 
