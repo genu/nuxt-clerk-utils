@@ -66,7 +66,7 @@ The following helpers are auto-imported in your `server/` directory.
 // Get the current clerk session if it exists, null otherwise
 const clerkSession = await getClerkSession(event);
 
-// Require a clerk session (send back 401 if not `user` session exists)
+// Require a clerk session (send back 401 if no `user` session exists)
 const clerkSession = await requireClerkSession(event);
 ```
 
