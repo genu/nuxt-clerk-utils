@@ -1,8 +1,8 @@
 import type { H3Event } from 'h3'
 import { getAuth } from 'h3-clerk'
-// import { clerkClient } from '@clerk/clerk-sdk-node'
+import type { SignedInAuthObject, SignedOutAuthObject } from '@clerk/backend/internal'
 
-export function requireClerkSession(event: H3Event) {
+export function requireClerkSession(event: H3Event): SignedInAuthObject {
   const auth = getAuth(event)
 
   if (!auth.userId)
@@ -11,7 +11,7 @@ export function requireClerkSession(event: H3Event) {
   return auth
 }
 
-export function getClerkSession(event: H3Event) {
+export function getClerkSession(event: H3Event): SignedInAuthObject | SignedOutAuthObject | null {
   let auth: ReturnType<typeof getAuth>
 
   try {
