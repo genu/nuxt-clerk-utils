@@ -1,6 +1,22 @@
 # Changelog
 
 
+## v1.2.0
+
+[compare changes](https://github.com/genu/nuxt-clerk-utils/compare/v1.1.2...v1.2.0)
+
+### 🚀 Enhancements
+
+- Add svix npm dependency and define user-created webhook handler ([b9ccb49](https://github.com/genu/nuxt-clerk-utils/commit/b9ccb49))
+
+### 🏡 Chore
+
+- Refactor ([6be3cfd](https://github.com/genu/nuxt-clerk-utils/commit/6be3cfd))
+
+### ❤️ Contributors
+
+- Eugen Istoc <eugenistoc@gmail.com>
+
 ## v1.1.2
 
 [compare changes](https://github.com/genu/nuxt-clerk-utils/compare/v1.1.1...v1.1.2)
