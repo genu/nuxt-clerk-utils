@@ -10,6 +10,7 @@
 ## Features
 
 - Server middleware based on [h3-clerk](https://github.com/wobsoriano/h3-clerk)
+- Utilities for handling clerk webhooks
 
 ## Requirements
 
@@ -39,6 +40,16 @@ export default defineNuxtConfig({
 });
 ```
 
+## Configuration
+The following environment variables are required in order for this module to function correctly to be defined in your `.env`:
+
+```bash
+CLERK_PUBLISHABLE_KEY=".."
+CLERK_SECRET_KEY="..."
+
+# Optional: Enable this if you want to handle clerk webhooks
+CLERK_WEBHOOK_SIGNING_SECRET=".."
+```
 ## Vue Composables
 
 > NOTE: All of the composables and components are re-exported from [vue-clerk](https://github.com/wobsoriano/vue-clerk). See project [documentation](https://vue-clerk.vercel.app) for usage
@@ -57,6 +68,19 @@ const clerkSession = await getClerkSession(event);
 const clerkSession = await requireClerkSession(event);
 ```
 
+### Webhooks
+To work with webhooks, first create the webhook on the clerk dashboard, and define a handler for it in your app like so:
+
+
+```ts
+// server/routes/clerk.post.ts
+export default defineClerkWebhook((_event, { payload, type }) => {
+  // ...
+})
+
+```
+
+Webhook signature are verified automatically.
 ## Development
 
 ```bash

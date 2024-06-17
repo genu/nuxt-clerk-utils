@@ -39,12 +39,15 @@ export default defineNuxtModule<ModuleOptions>({
       _nuxt.options.nitro.imports = defu(_nuxt.options.nitro.imports, {
         presets: [
           {
+            from: resolver.resolve('./runtime/server/utils/webhook'),
+            imports: ['defineClerkWebhook'],
+          },
+          {
             from: resolver.resolve('./runtime/server/utils/session'),
             imports: ['requireClerkSession', 'getClerkSession'],
           },
         ],
-      },
-      )
+      })
     }
 
     addServerHandler({
@@ -61,10 +64,12 @@ export default defineNuxtModule<ModuleOptions>({
     })
 
     // Runtime configuration
-    _nuxt.options.runtimeConfig.public.clerk = defu(_nuxt.options.runtimeConfig.public.clerk, {
-      publishableKey: process.env.CLERK_PUBLISHABLE_KEY,
-
-    })
+    _nuxt.options.runtimeConfig.public.clerk = defu(
+      _nuxt.options.runtimeConfig.public.clerk,
+      {
+        publishableKey: process.env.CLERK_PUBLISHABLE_KEY,
+      },
+    )
 
     /**
      * Vue Clerk
@@ -109,16 +114,21 @@ export default defineNuxtModule<ModuleOptions>({
       'useOrganization',
     ]
 
-    addImports(composables.map(composable => ({
-      name: composable,
-      from: 'vue-clerk',
-    })))
+    addImports(
+      composables.map(composable => ({
+        name: composable,
+        from: 'vue-clerk',
+      })),
+    )
 
     components.forEach(component =>
-      addComponent({ name: component, export: component, filePath: 'vue-clerk' }),
+      addComponent({
+        name: component,
+        export: component,
+        filePath: 'vue-clerk',
+      }),
     )
   },
-
 })
 
 declare module 'nuxt/schema' {
