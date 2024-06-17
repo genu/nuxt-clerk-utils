@@ -1,6 +1,25 @@
 # Changelog
 
 
+## v1.3.0
+
+[compare changes](https://github.com/genu/nuxt-clerk-utils/compare/v1.2.0...v1.3.0)
+
+### 🚀 Enhancements
+
+- Add svix npm dependency and define user-created webhook handler ([b9ccb49](https://github.com/genu/nuxt-clerk-utils/commit/b9ccb49))
+- Add lazy loading for images and update vue-clerk plugin ([9e053fd](https://github.com/genu/nuxt-clerk-utils/commit/9e053fd))
+
+### 🏡 Chore
+
+- Refactor ([6be3cfd](https://github.com/genu/nuxt-clerk-utils/commit/6be3cfd))
+- **release:** V1.2.0 ([a6773fc](https://github.com/genu/nuxt-clerk-utils/commit/a6773fc))
+- Update runtimeConfig.clerk with environment variables ([3ffdaa1](https://github.com/genu/nuxt-clerk-utils/commit/3ffdaa1))
+
+### ❤️ Contributors
+
+- Eugen Istoc <eugenistoc@gmail.com>
+
 ## v1.2.0
 
 [compare changes](https://github.com/genu/nuxt-clerk-utils/compare/v1.1.2...v1.2.0)
