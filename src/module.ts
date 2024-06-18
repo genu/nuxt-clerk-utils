@@ -4,6 +4,7 @@ import {
   addServerHandler,
   addPlugin,
   addComponent,
+  addImportsDir,
   addImports,
 } from '@nuxt/kit'
 import { defu } from 'defu'
@@ -21,7 +22,7 @@ export default defineNuxtModule<ModuleOptions>({
   setup(_options, _nuxt) {
     const resolver = createResolver(import.meta.url)
 
-    _nuxt.options.alias['#clerk'] = resolver.resolve('./runtime/types/session')
+    _nuxt.options.alias['#clerk'] = resolver.resolve('./runtime/types/index')
     _nuxt.options.alias['#clerk/events'] = resolver.resolve(
       './runtime/types/webhook-payload',
     )
@@ -29,7 +30,9 @@ export default defineNuxtModule<ModuleOptions>({
     /**
      * App
      */
+    addImportsDir(resolver.resolve('./runtime/composables'))
     addPlugin(resolver.resolve('./runtime/plugins/clerk-session.server'))
+    addPlugin(resolver.resolve('./runtime/plugins/clerk-current-user.server'))
     addPlugin(resolver.resolve('./runtime/plugins/vue-clerk'))
 
     /**
@@ -57,6 +60,10 @@ export default defineNuxtModule<ModuleOptions>({
     addServerHandler({
       handler: resolver.resolve('./runtime/server/api/session.get'),
       route: '/api/_clerk/session',
+    })
+    addServerHandler({
+      handler: resolver.resolve('./runtime/server/api/me.get'),
+      route: '/api/_clerk/me',
     })
     addServerHandler({
       handler: resolver.resolve('./runtime/server/api/session.delete'),
