@@ -2,7 +2,7 @@ import type { UserSessionComposable, ClerkSessionState } from '#clerk'
 import { useState, useRequestFetch, computed } from '#imports'
 
 const useClerkSessionState = () =>
-  useState<ClerkSessionState>('clerk-session', () => ({}))
+  useState<ClerkSessionState | null>('clerk-session', () => ({}))
 
 export function useClerkSession(): UserSessionComposable {
   const session = useClerkSessionState()
@@ -23,6 +23,6 @@ export function useClerkSession(): UserSessionComposable {
   return {
     fetch,
     session,
-    loggedIn: computed(() => Boolean(session.value.userId)),
+    loggedIn: computed(() => Boolean(session.value?.userId)),
   }
 }

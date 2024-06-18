@@ -5,6 +5,6 @@ export interface ClerkSessionState extends Partial<InitialState> {}
 
 export interface UserSessionComposable {
   loggedIn: ComputedRef<boolean>
-  session: Ref<ClerkSessionState>
+  session: Ref<ClerkSessionState | null>
   fetch: () => Promise<void>
 }
