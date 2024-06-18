@@ -8,10 +8,10 @@ import {
 import type { WebhookEventType, WebhookEvent } from '@clerk/backend'
 import { Webhook } from 'svix'
 
-export const defineClerkWebhook = (
+export const defineClerkWebhook = <T = unknown>(
   fn: (
     event: H3Event,
-    data: { payload: unknown, type: WebhookEventType }
+    data: { payload: T, type: WebhookEventType }
   ) => Promise<void> | void,
 ) => {
   return eventHandler(async (event) => {
