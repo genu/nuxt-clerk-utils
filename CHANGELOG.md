@@ -1,6 +1,19 @@
 # Changelog
 
 
+## v1.4.0
+
+[compare changes](https://github.com/genu/nuxt-clerk-utils/compare/v1.3.0...v1.4.0)
+
+### 🚀 Enhancements
+
+- Update Clerk module aliases for session and webhook payload types ([f7562e5](https://github.com/genu/nuxt-clerk-utils/commit/f7562e5))
+- Add webhook payload type for UserResource ([f267ac5](https://github.com/genu/nuxt-clerk-utils/commit/f267ac5))
+
+### ❤️ Contributors
+
+- Eugen Istoc <eugenistoc@gmail.com>
+
 ## v1.3.0
 
 [compare changes](https://github.com/genu/nuxt-clerk-utils/compare/v1.2.0...v1.3.0)
