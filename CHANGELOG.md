@@ -1,6 +1,19 @@
 # Changelog
 
 
+## v1.5.5
+
+[compare changes](https://github.com/genu/nuxt-clerk-utils/compare/v1.5.4...v1.5.5)
+
+### 🏡 Chore
+
+- Remove unused computed property in useClerkSession.ts ([c5465bc](https://github.com/genu/nuxt-clerk-utils/commit/c5465bc))
+- Remove unused imports and update ClerkSessionState type ([94d5dca](https://github.com/genu/nuxt-clerk-utils/commit/94d5dca))
+
+### ❤️ Contributors
+
+- Eugen Istoc <eugenistoc@gmail.com>
+
 ## v1.5.4
 
 [compare changes](https://github.com/genu/nuxt-clerk-utils/compare/v1.5.2...v1.5.4)
