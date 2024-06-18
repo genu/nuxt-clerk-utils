@@ -1,18 +1,9 @@
-import {
-  eventHandler,
-  getHeader,
-  readRawBody,
-  createError,
-  type H3Event,
-} from 'h3'
+import { eventHandler, getHeader, readRawBody, createError } from 'h3'
 import type { WebhookEventType, WebhookEvent } from '@clerk/backend'
 import { Webhook } from 'svix'
 
 export const defineClerkWebhook = <T = unknown>(
-  fn: (
-    event: H3Event,
-    data: { payload: T, type: WebhookEventType }
-  ) => Promise<void> | void,
+  fn: (data: { payload: T, type: WebhookEventType }) => Promise<void> | void,
 ) => {
   return eventHandler(async (event) => {
     const wh = new Webhook(process.env.CLERK_WEBHOOK_SIGNING_SECRET!)
@@ -26,7 +17,7 @@ export const defineClerkWebhook = <T = unknown>(
         'svix-timestamp': getHeader(event, 'svix-timestamp')!,
       }) as WebhookEvent
 
-      return fn(event, {
+      return fn({
         payload: payload.data as T,
         type: payload.type,
       })
