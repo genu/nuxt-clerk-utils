@@ -24,7 +24,10 @@ export default defineNuxtModule<ModuleOptions>({
 
     addImportsDir(resolver.resolve('./runtime/composables'))
 
-    _nuxt.options.alias['#clerk'] = resolver.resolve('./runtime/types/index')
+    _nuxt.options.alias['#clerk'] = resolver.resolve('./runtime/types/session')
+    _nuxt.options.alias['#clerk/events'] = resolver.resolve(
+      './runtime/types/webhook-payload',
+    )
 
     /**
      * App
