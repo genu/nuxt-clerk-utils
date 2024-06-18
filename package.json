@@ -1,6 +1,6 @@
 {
   "name": "nuxt-clerk-utils",
-  "version": "1.5.3",
+  "version": "1.5.4",
   "description": "Auth utils for clerk",
   "repository": "https://github.com/genu/nuxt-clerk-utils",
   "license": "MIT",

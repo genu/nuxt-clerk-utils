@@ -1,6 +1,19 @@
 # Changelog
 
 
+## v1.5.4
+
+[compare changes](https://github.com/genu/nuxt-clerk-utils/compare/v1.5.2...v1.5.4)
+
+### 🏡 Chore
+
+- **release:** V1.5.3 ([5ea1c3a](https://github.com/genu/nuxt-clerk-utils/commit/5ea1c3a))
+- Update ClerkSessionState type to allow null value ([70f799a](https://github.com/genu/nuxt-clerk-utils/commit/70f799a))
+
+### ❤️ Contributors
+
+- Eugen Istoc <eugenistoc@gmail.com>
+
 ## v1.5.3
 
 [compare changes](https://github.com/genu/nuxt-clerk-utils/compare/v1.5.2...v1.5.3)
