@@ -27,7 +27,7 @@ export const defineClerkWebhook = <T = unknown>(
       }) as WebhookEvent
 
       return fn(event, {
-        payload,
+        payload: payload.data as T,
         type: payload.type,
       })
     }
