@@ -1,5 +1,5 @@
 import type { UserSessionComposable, ClerkSessionState } from '#clerk'
-import { useState, useRequestFetch, computed } from '#imports'
+import { useState, useRequestFetch } from '#imports'
 
 const useClerkSessionState = () =>
   useState<ClerkSessionState | null>('clerk-session', () => ({}))
@@ -23,6 +23,5 @@ export function useClerkSession(): UserSessionComposable {
   return {
     fetch,
     session,
-    loggedIn: computed(() => Boolean(session.value?.userId)),
   }
 }
