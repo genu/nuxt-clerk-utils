@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v1.5.0
+
+[compare changes](https://github.com/genu/nuxt-clerk-utils/compare/v1.4.0...v1.5.0)
+
+### 🚀 Enhancements
+
+- Update defineClerkWebhook to support generic payload type ([05ce0fa](https://github.com/genu/nuxt-clerk-utils/commit/05ce0fa))
+
+### ❤️ Contributors
+
+- Eugen Istoc <eugenistoc@gmail.com>
+
 ## v1.4.0
 
 [compare changes](https://github.com/genu/nuxt-clerk-utils/compare/v1.3.0...v1.4.0)
