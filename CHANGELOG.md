@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v1.5.6
+
+[compare changes](https://github.com/genu/nuxt-clerk-utils/compare/v1.5.5...v1.5.6)
+
+### 🏡 Chore
+
+- Remove unused imports and console.log statements ([7f41faf](https://github.com/genu/nuxt-clerk-utils/commit/7f41faf))
+
+### ❤️ Contributors
+
+- Eugen Istoc <eugenistoc@gmail.com>
+
 ## v1.5.5
 
 [compare changes](https://github.com/genu/nuxt-clerk-utils/compare/v1.5.4...v1.5.5)
