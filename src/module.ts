@@ -2,7 +2,6 @@ import {
   defineNuxtModule,
   createResolver,
   addServerHandler,
-  addImportsDir,
   addPlugin,
   addComponent,
   addImports,
@@ -21,8 +20,6 @@ export default defineNuxtModule<ModuleOptions>({
   defaults: {},
   setup(_options, _nuxt) {
     const resolver = createResolver(import.meta.url)
-
-    addImportsDir(resolver.resolve('./runtime/composables'))
 
     _nuxt.options.alias['#clerk'] = resolver.resolve('./runtime/types/session')
     _nuxt.options.alias['#clerk/events'] = resolver.resolve(
