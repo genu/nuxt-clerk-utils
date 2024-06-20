@@ -1,4 +1,3 @@
-export default defineClerkWebhook(({ payload, type }) => {
-  console.log('pyload type', type)
+export default defineClerkWebhook('session.created', ({ payload }) => {
   console.log('payload', payload)
 })

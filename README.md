@@ -80,16 +80,10 @@ When defining a webhook in this way, you can assume that the webhook is valid as
 
 ```ts
 // server/routes/clerk.post.ts
-import type { UserResource } from '#clerk/events';
+export default defineClerkWebhook('user.created', ({ payload }) => {
+  console.log('payload', payload)
+})
 
-export default defineClerkWebhook<UserResource>(async ({ payload, type }) => {
-  switch (type) {
-    case 'user.created': {
-      // ...
-      break;
-    }
-  }
-});
 
 ```
 

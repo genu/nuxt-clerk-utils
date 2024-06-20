@@ -1,9 +1,22 @@
-import { eventHandler, getHeader, readRawBody, createError } from 'h3'
 import type { WebhookEventType, WebhookEvent } from '@clerk/backend'
+import type { UserJSON, SessionJSON, OrganizationJSON } from '@clerk/types'
+import { eventHandler, getHeader, readRawBody, createError } from 'h3'
 import { Webhook } from 'svix'
 
-export const defineClerkWebhook = <T = unknown>(
-  fn: (data: { payload: T, type: WebhookEventType }) => Promise<void> | void,
+// Create a type that maps each WebhookEventType to its corresponding payload type
+type WebhookPayloadMap = {
+  [K in WebhookEventType]: K extends `user.${string}`
+    ? UserJSON
+    : K extends `session.${string}`
+      ? SessionJSON
+      : K extends `organization.${string}`
+        ? OrganizationJSON
+        : never;
+}
+
+export const defineClerkWebhook = <T extends keyof WebhookPayloadMap>(
+  type: T,
+  fn: (data: { payload: WebhookPayloadMap[T] }) => Promise<void> | void,
 ) => {
   return eventHandler(async (event) => {
     const wh = new Webhook(process.env.CLERK_WEBHOOK_SIGNING_SECRET!)
@@ -18,8 +31,7 @@ export const defineClerkWebhook = <T = unknown>(
       }) as WebhookEvent
 
       return fn({
-        payload: payload.data as T,
-        type: payload.type,
+        payload: payload.data as unknown as WebhookPayloadMap[T],
       })
     }
     catch (e) {
