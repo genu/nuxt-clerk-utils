@@ -42,6 +42,10 @@ export default defineNuxtModule<ModuleOptions>({
       _nuxt.options.nitro.imports = defu(_nuxt.options.nitro.imports, {
         presets: [
           {
+            from: resolver.resolve('./runtime/server/utils/clerk'),
+            imports: ['$clerk'],
+          },
+          {
             from: resolver.resolve('./runtime/server/utils/webhook'),
             imports: ['defineClerkWebhook'],
           },
