@@ -30,6 +30,8 @@ export const defineClerkWebhook = <T extends keyof WebhookPayloadMap>(
         'svix-timestamp': getHeader(event, 'svix-timestamp')!,
       }) as WebhookEvent
 
+      if (payload.type !== type) return
+
       return fn({
         payload: payload.data as unknown as WebhookPayloadMap[T],
       })
