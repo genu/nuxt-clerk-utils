@@ -1,6 +1,10 @@
 # Changelog
 
 
+## v1.5.7
+
+[compare changes](https://github.com/genu/nuxt-clerk-utils/compare/v1.5.6...v1.5.7)
+
 ## v1.5.6
 
 [compare changes](https://github.com/genu/nuxt-clerk-utils/compare/v1.5.5...v1.5.6)
