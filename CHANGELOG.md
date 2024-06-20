@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v1.5.9
+
+[compare changes](https://github.com/genu/nuxt-clerk-utils/compare/v1.5.8...v1.5.9)
+
+### 🏡 Chore
+
+- Add Clerk utility import in module.ts ([25b9137](https://github.com/genu/nuxt-clerk-utils/commit/25b9137))
+
+### ❤️ Contributors
+
+- Eugen Istoc <eugenistoc@gmail.com>
+
 ## v1.5.8
 
 [compare changes](https://github.com/genu/nuxt-clerk-utils/compare/v1.5.7...v1.5.8)
