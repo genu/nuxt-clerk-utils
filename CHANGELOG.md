@@ -1,6 +1,20 @@
 # Changelog
 
 
+## v1.5.12
+
+[compare changes](https://github.com/genu/nuxt-clerk-utils/compare/v1.5.11...v1.5.12)
+
+### 🏡 Chore
+
+- Remove h3-clerk npm dependency ([1ae7022](https://github.com/genu/nuxt-clerk-utils/commit/1ae7022))
+- Update Clerk configuration in nuxt.config.ts and module.ts ([281c660](https://github.com/genu/nuxt-clerk-utils/commit/281c660))
+- Update Clerk configuration in nuxt.config.ts and module.ts ([dbbf674](https://github.com/genu/nuxt-clerk-utils/commit/dbbf674))
+
+### ❤️ Contributors
+
+- Eugen Istoc <eugenistoc@gmail.com>
+
 ## v1.5.11
 
 [compare changes](https://github.com/genu/nuxt-clerk-utils/compare/v1.5.10...v1.5.11)
