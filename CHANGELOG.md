@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v1.5.11
+
+[compare changes](https://github.com/genu/nuxt-clerk-utils/compare/v1.5.10...v1.5.11)
+
+### 🏡 Chore
+
+- Update eslint dependency to version 9.6.0 ([a9bf44d](https://github.com/genu/nuxt-clerk-utils/commit/a9bf44d))
+
+### ❤️ Contributors
+
+- Eugen Istoc <eugenistoc@gmail.com>
+
 ## v1.5.10
 
 [compare changes](https://github.com/genu/nuxt-clerk-utils/compare/v1.5.9...v1.5.10)
