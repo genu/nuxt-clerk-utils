@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v1.5.10
+
+[compare changes](https://github.com/genu/nuxt-clerk-utils/compare/v1.5.9...v1.5.10)
+
+### 🏡 Chore
+
+- Update npm dependencies to latest versions ([fc84016](https://github.com/genu/nuxt-clerk-utils/commit/fc84016))
+
+### ❤️ Contributors
+
+- Eugen Istoc <eugenistoc@gmail.com>
+
 ## v1.5.9
 
 [compare changes](https://github.com/genu/nuxt-clerk-utils/compare/v1.5.8...v1.5.9)
