@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v1.5.13
+
+[compare changes](https://github.com/genu/nuxt-clerk-utils/compare/v1.5.12...v1.5.13)
+
+### 🏡 Chore
+
+- Update Clerk session handling in session.ts ([415a8c1](https://github.com/genu/nuxt-clerk-utils/commit/415a8c1))
+
+### ❤️ Contributors
+
+- Eugen Istoc <eugenistoc@gmail.com>
+
 ## v1.5.12
 
 [compare changes](https://github.com/genu/nuxt-clerk-utils/compare/v1.5.11...v1.5.12)
