@@ -1,4 +1,4 @@
-import { toWebRequest, type H3Event } from 'h3'
+import { type H3Event, getRequestURL } from 'h3'
 import type {
   SignedInAuthObject,
   SignedOutAuthObject,
@@ -16,7 +16,12 @@ export async function requireClerkSession(event: H3Event): Promise<SignedInAuthO
 export async function getClerkSession(
   event: H3Event,
 ): Promise<SignedInAuthObject | SignedOutAuthObject | null> {
-  const clerkRequest = toWebRequest(event)
+  const url = getRequestURL(event)
+
+  const clerkRequest = new Request(url, {
+    headers: event.headers,
+  })
+
   const requestState = await $clerk.authenticateRequest(clerkRequest)
 
   return requestState.toAuth()
