@@ -32,7 +32,6 @@
     "@clerk/clerk-sdk-node": "^5.0.14",
     "@nuxt/kit": "^3.12.3",
     "defu": "^6.1.4",
-    "h3-clerk": "^0.4.7",
     "svix": "^1.24.0",
     "vue-clerk": "^0.4.8"
   },
