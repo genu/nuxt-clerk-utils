@@ -45,11 +45,11 @@ export default defineNuxtConfig({
 The following environment variables are required in order for this module to function correctly to be defined in your `.env`:
 
 ```bash
-CLERK_PUBLISHABLE_KEY=".."
-CLERK_SECRET_KEY="..."
+NUXT_PUBLIC_CLERK_PUBLISHABLE_KEY=".."
+NUXT_CLERK_SECRET_KEY="..."
 
 # Optional: Enable this if you want to handle clerk webhooks
-CLERK_WEBHOOK_SIGNING_SECRET=".."
+NUXT_CLERK_WEBHOOK_SIGNING_SECRET=".."
 ```
 
 ## Vue Composables
