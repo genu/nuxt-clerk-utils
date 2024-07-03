@@ -1,29 +1,23 @@
-import type { H3Event } from 'h3'
-import { getAuth } from 'h3-clerk'
+import { toWebRequest, type H3Event } from 'h3'
 import type {
   SignedInAuthObject,
   SignedOutAuthObject,
 } from '@clerk/backend/internal'
+import { $clerk } from './clerk'
 
-export function requireClerkSession(event: H3Event): SignedInAuthObject {
-  const auth = getAuth(event)
+export async function requireClerkSession(event: H3Event): Promise<SignedInAuthObject> {
+  const auth = await getClerkSession(event)
 
-  if (!auth.userId) throw new Error('No session found')
+  if (!auth || !auth.userId) throw new Error('No session found')
 
   return auth
 }
 
-export function getClerkSession(
+export async function getClerkSession(
   event: H3Event,
-): SignedInAuthObject | SignedOutAuthObject | null {
-  let auth: ReturnType<typeof getAuth>
+): Promise<SignedInAuthObject | SignedOutAuthObject | null> {
+  const clerkRequest = toWebRequest(event)
+  const requestState = await $clerk.authenticateRequest(clerkRequest)
 
-  try {
-    auth = getAuth(event)
-  }
-  catch (e) {
-    return null
-  }
-
-  return auth
+  return requestState.toAuth()
 }

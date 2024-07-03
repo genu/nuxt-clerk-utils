@@ -58,10 +58,6 @@ export default defineNuxtModule<ModuleOptions>({
     }
 
     addServerHandler({
-      handler: resolver.resolve('./runtime/server/middleware/clerk'),
-      middleware: true,
-    })
-    addServerHandler({
       handler: resolver.resolve('./runtime/server/api/session.get'),
       route: '/api/_clerk/session',
     })
@@ -78,15 +74,15 @@ export default defineNuxtModule<ModuleOptions>({
     _nuxt.options.runtimeConfig.public.clerk = defu(
       _nuxt.options.runtimeConfig.public.clerk,
       {
-        publishableKey: process.env.CLERK_PUBLISHABLE_KEY,
+        publishableKey: process.env.NUXT_PUBLIC_CLERK_PUBLISHABLE_KEY,
       },
     )
 
     _nuxt.options.runtimeConfig.clerk = defu(
       _nuxt.options.runtimeConfig.clerk,
       {
-        secretKey: process.env.CLERK_SECRET_KEY,
-        webhookSigningSecret: process.env.CLERK_WEBHOOK_SIGNING_SECRET,
+        secretKey: process.env.NUXT_CLERK_SECRET_KEY,
+        webhookSigningSecret: process.env.NUXT_CLERK_WEBHOOK_SIGNING_SECRET,
       },
     )
 
